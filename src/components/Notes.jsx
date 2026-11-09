@@ -9,6 +9,12 @@ function Notes() {
   ])
 
   const [form, setForm] = useState({ title: '', body: '' })
+  const [search, setSearch] = useState('')
+
+  
+  const visibleNotes = notes.filter((note) =>
+    note.title.toLowerCase().includes(search.trim().toLowerCase())
+  )
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value })
